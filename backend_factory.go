@@ -2,15 +2,13 @@ package krakend
 
 import (
 	"context"
-	"github.com/gs012345/sso"
-
 	"github.com/devopsfaith/krakend-amqp"
 	"github.com/devopsfaith/krakend-cel"
 	cb "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy"
 	"github.com/devopsfaith/krakend-httpcache"
 	"github.com/devopsfaith/krakend-lambda"
 	lua "github.com/devopsfaith/krakend-lua/proxy"
-	"github.com/devopsfaith/krakend-martian"
+	//"github.com/devopsfaith/krakend-martian"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-oauth2-clientcredentials"
 	"github.com/devopsfaith/krakend-opencensus"
@@ -21,6 +19,7 @@ import (
 	"github.com/devopsfaith/krakend/proxy"
 	"github.com/devopsfaith/krakend/transport/http/client"
 	httprequestexecutor "github.com/devopsfaith/krakend/transport/http/client/plugin"
+	"github.com/gs012345/sso"
 )
 
 // NewBackendFactory creates a BackendFactory by stacking all the available middlewares:
@@ -51,7 +50,8 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 		return opencensus.HTTPRequestExecutor(clientFactory)
 	}
 	requestExecutorFactory = httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
-	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
+	backendFactory := sso.NewConfiguredBackendFactory(logger, requestExecutorFactory)
+	//backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
 	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = bf.New
 	backendFactory = amqp.NewBackendFactory(ctx, logger, backendFactory)
@@ -62,6 +62,5 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	backendFactory = cb.BackendFactory(backendFactory, logger)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
 	backendFactory = opencensus.BackendFactory(backendFactory)
-	backendFactory = sso.NewConfiguredBackendFactory(logger, requestExecutorFactory)
 	return backendFactory
 }

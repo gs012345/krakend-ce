@@ -472,6 +472,7 @@ github.com/gs012345/sso v1.0.3 h1:qMYs9wpbB1C/4Jj9Z9PRKKf8T63wAdfCJBr0687NXEY=
 github.com/gs012345/sso v1.0.3/go.mod h1:ZqPUc4vk9QoBQIqeBApkaBH8j6QkcmcYF3/iHbvb1KE=
 github.com/gs012345/sso v1.0.5/go.mod h1:ZqPUc4vk9QoBQIqeBApkaBH8j6QkcmcYF3/iHbvb1KE=
 github.com/gs012345/sso v1.0.6/go.mod h1:ZqPUc4vk9QoBQIqeBApkaBH8j6QkcmcYF3/iHbvb1KE=
+github.com/gs012345/sso v1.0.7 h1:yJsGCvb+N+zq1wbq4RXuNOhP2tE8Gm5mczJtUGtdpuI=
 github.com/gs012345/sso v1.0.7/go.mod h1:ZqPUc4vk9QoBQIqeBApkaBH8j6QkcmcYF3/iHbvb1KE=
 github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed/go.mod h1:tMWxXQ9wFIaZeTI9F+hmhFiGpFmhOHzyShyFUhRm0H4=
 github.com/hashicorp/consul v1.4.0 h1:PQTW4xCuAExEiSbhrsFsikzbW5gVBoi74BjUvYFyKHw=
