@@ -8,8 +8,6 @@ import (
 	"github.com/devopsfaith/krakend-httpcache"
 	"github.com/devopsfaith/krakend-lambda"
 	lua "github.com/devopsfaith/krakend-lua/proxy"
-	"github.com/gs012345/sso"
-
 	//"github.com/devopsfaith/krakend-martian"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-oauth2-clientcredentials"
