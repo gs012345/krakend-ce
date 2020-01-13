@@ -34,6 +34,7 @@ import (
 // - circuit breaker
 // - metrics collector
 // - opencensus collector
+// - sso
 func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	return NewBackendFactoryWithContext(context.Background(), logger, metricCollector)
 }
